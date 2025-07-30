@@ -48,18 +48,18 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Gallery Address</h4>
             <div className="text-primary-foreground/80 space-y-2">
-              <p>Hawa Mahal Road</p>
-              <p>Pink City, Jaipur</p>
-              <p>Rajasthan 302002</p>
-              <p className="mt-4">+91 9876543210</p>
-              <p>info@24artistry.com</p>
+              <p>Pune, Maharashtra</p>
+              <p>411061</p>
+              <p className="mt-4">+91 8605322549</p>
+              <p>+91 7796656571</p>
+              <p>chougulesachin2406@gmail.com</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60">
-            © 2024 २४ Artistry. All rights reserved. | Crafted with love for Rajasthani art heritage.
+            © 2025 २४ Artistry. All rights reserved. | Crafted with love for Rajasthani art heritage.
           </p>
         </div>
       </div>

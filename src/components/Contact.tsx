@@ -8,22 +8,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Our Gallery",
-    details: ["Hawa Mahal Road", "Pink City, Jaipur", "Rajasthan 302002"]
+    details: ["Pune, Maharashtra", "411061"]
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 9876543210", "+91 141-2234567"]
+    details: ["+91 8605322549", "+91 7796656571"]
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@24artistry.com", "gallery@24artistry.com"]
-  },
-  {
-    icon: Clock,
-    title: "Gallery Hours",
-    details: ["Mon - Sat: 10:00 AM - 8:00 PM", "Sunday: 11:00 AM - 6:00 PM"]
+    details: ["chougulesachin2406@gmail.com"]
   }
 ];
 
@@ -44,7 +39,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {contactInfo.map((info, index) => (
                 <Card key={index} className="border-0 bg-card/50 backdrop-blur-sm hover:shadow-gold transition-all duration-300">
                   <CardContent className="p-6">
@@ -90,43 +85,63 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6 bg-gradient-royal bg-clip-text text-transparent">
                 Get in Touch
               </h3>
-              <form className="space-y-6">
+              <form 
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.target as HTMLFormElement);
+                  const firstName = formData.get('firstName');
+                  const lastName = formData.get('lastName');
+                  const email = formData.get('email');
+                  const phone = formData.get('phone');
+                  const message = formData.get('message');
+                  
+                  const whatsappMessage = `Hi! New inquiry from ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}`;
+                  
+                  window.open(`https://wa.me/918605322549?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+                }}
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       First Name
                     </label>
-                    <Input placeholder="Enter your first name" />
+                    <Input name="firstName" placeholder="Enter your first name" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Last Name
                     </label>
-                    <Input placeholder="Enter your last name" />
+                    <Input name="lastName" placeholder="Enter your last name" required />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Email
                   </label>
-                  <Input type="email" placeholder="Enter your email" />
+                  <Input name="email" type="email" placeholder="Enter your email" required />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Phone
                   </label>
-                  <Input type="tel" placeholder="Enter your phone number" />
+                  <Input name="phone" type="tel" placeholder="Enter your phone number" required />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <Textarea 
+                    name="message"
                     placeholder="Tell us about your interest in Rajasthani art or any specific paintings you'd like to know about"
                     rows={4}
+                    required
                   />
                 </div>
-                <Button variant="royal" size="lg" className="w-full">
+                <Button type="submit" variant="royal" size="lg" className="w-full">
                   Send Message
                 </Button>
               </form>

@@ -24,10 +24,20 @@ const Hero = () => {
           Each masterpiece tells a story of royal heritage, vibrant culture, and artistic excellence.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="royal" size="lg" className="text-lg px-8 py-6">
+          <Button 
+            variant="royal" 
+            size="lg" 
+            className="text-lg px-8 py-6"
+            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Explore Gallery
           </Button>
-          <Button variant="elegant" size="lg" className="text-lg px-8 py-6">
+          <Button 
+            variant="elegant" 
+            size="lg" 
+            className="text-lg px-8 py-6"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Learn Our Story
           </Button>
         </div>

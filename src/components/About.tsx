@@ -65,11 +65,7 @@ const About = () => {
             Step into our gallery and immerse yourself in the vibrant world of Rajasthani miniature paintings. 
             Each visit is a journey through centuries of artistic excellence and cultural heritage.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-white/80">Authentic Paintings</div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">20+</div>
               <div className="text-white/80">Master Artisans</div>

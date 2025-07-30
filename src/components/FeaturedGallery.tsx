@@ -7,20 +7,28 @@ import collectionImage from "@/assets/paintings-collection.jpg";
 const paintings = [
   {
     id: 1,
+    title: "Rajasthani Phad hand painting",
+    originalPrice: "₹4,500",
+    price: "₹3,500",
+    image: peacockPainting,
+    description: "Traditional Phad painting depicting epic tales and folklore"
+  },
+  {
+    id: 2,
     title: "Royal Peacock Majesty",
     price: "₹12,500",
     image: peacockPainting,
     description: "Exquisite peacock motif with intricate gold leaf details"
   },
   {
-    id: 2,
+    id: 3,
     title: "Elephant Procession",
     price: "₹18,000",
     image: elephantPainting,
     description: "Traditional royal elephant parade in vibrant colors"
   },
   {
-    id: 3,
+    id: 4,
     title: "Heritage Collection",
     price: "₹25,000",
     image: collectionImage,
@@ -42,9 +50,13 @@ const FeaturedGallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
           {paintings.map((painting) => (
-            <Card key={painting.id} className="group overflow-hidden hover:shadow-elegant transition-all duration-500 border-0 bg-card/50 backdrop-blur-sm">
+            <Card 
+              key={painting.id} 
+              className="group overflow-hidden hover:shadow-elegant transition-all duration-500 border-0 bg-card/50 backdrop-blur-sm cursor-pointer"
+              onClick={() => window.open(`https://wa.me/918605322549?text=Hi, I'm interested in ${painting.title} for ${painting.price}`, '_blank')}
+            >
               <div className="relative overflow-hidden">
                 <img 
                   src={painting.image} 
@@ -60,13 +72,40 @@ const FeaturedGallery = () => {
                 <p className="text-muted-foreground mb-4">
                   {painting.description}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-rajasthani-gold">
-                    {painting.price}
-                  </span>
-                  <Button variant="royal" size="sm">
-                    View Details
-                  </Button>
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    {painting.originalPrice && (
+                      <span className="text-lg font-medium text-muted-foreground line-through">
+                        {painting.originalPrice}
+                      </span>
+                    )}
+                    <span className="text-2xl font-bold text-rajasthani-gold">
+                      {painting.price}
+                    </span>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="royal" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(`https://wa.me/918605322549?text=Hi, I want to buy ${painting.title} for ${painting.price}`, '_blank');
+                      }}
+                    >
+                      Buy Now
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(`https://wa.me/918605322549?text=Hi, I want to add ${painting.title} to cart for ${painting.price}`, '_blank');
+                      }}
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -74,7 +113,12 @@ const FeaturedGallery = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="heritage" size="lg" className="px-12 py-6 text-lg">
+          <Button 
+            variant="heritage" 
+            size="lg" 
+            className="px-12 py-6 text-lg"
+            onClick={() => window.open('https://wa.me/918605322549?text=Hi, I want to see your complete gallery collection', '_blank')}
+          >
             View Complete Gallery
           </Button>
         </div>

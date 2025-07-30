@@ -37,7 +37,11 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button variant="outline" className="hidden md:inline-flex">
+            <Button 
+              variant="outline" 
+              className="hidden md:inline-flex"
+              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Explore Collection
             </Button>
             <Button variant="ghost" size="icon" className="md:hidden">
