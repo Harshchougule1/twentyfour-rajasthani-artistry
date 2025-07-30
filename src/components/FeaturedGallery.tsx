@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/hooks/useCart";
+import { useToast } from "@/hooks/use-toast";
 import peacockPainting from "@/assets/peacock-painting.jpg";
 import elephantPainting from "@/assets/elephant-painting.jpg";
 import collectionImage from "@/assets/paintings-collection.jpg";
@@ -37,6 +39,26 @@ const paintings = [
 ];
 
 const FeaturedGallery = () => {
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (painting: typeof paintings[0]) => {
+    addItem({
+      id: painting.id,
+      title: painting.title,
+      price: painting.price,
+      image: painting.image
+    });
+    toast({
+      title: "Added to cart",
+      description: `${painting.title} has been added to your cart.`,
+    });
+  };
+
+  const handleBuyNow = (painting: typeof paintings[0]) => {
+    window.open(`https://wa.me/918605322549?text=Hi, I want to buy ${painting.title} for ${painting.price}`, '_blank');
+  };
+
   return (
     <section id="gallery" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +112,7 @@ const FeaturedGallery = () => {
                       className="flex-1"
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(`https://wa.me/918605322549?text=Hi, I want to buy ${painting.title} for ${painting.price}`, '_blank');
+                        handleBuyNow(painting);
                       }}
                     >
                       Buy Now
@@ -100,7 +122,7 @@ const FeaturedGallery = () => {
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(`https://wa.me/918605322549?text=Hi, I want to add ${painting.title} to cart for ${painting.price}`, '_blank');
+                        handleAddToCart(painting);
                       }}
                     >
                       Add to Cart

@@ -15,7 +15,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-rajasthani-gold to-rajasthani-orange bg-clip-text text-transparent">
+          <span className="text-white drop-shadow-lg">
             २४ Artistry
           </span>
         </h1>
@@ -23,7 +23,7 @@ const Hero = () => {
           Discover the timeless beauty of authentic Rajasthani miniature paintings. 
           Each masterpiece tells a story of royal heritage, vibrant culture, and artistic excellence.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex justify-center">
           <Button 
             variant="royal" 
             size="lg" 
@@ -31,14 +31,6 @@ const Hero = () => {
             onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Explore Gallery
-          </Button>
-          <Button 
-            variant="elegant" 
-            size="lg" 
-            className="text-lg px-8 py-6"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Learn Our Story
           </Button>
         </div>
       </div>

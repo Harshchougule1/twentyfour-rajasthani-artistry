@@ -39,20 +39,23 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="border-0 bg-card/50 backdrop-blur-sm hover:shadow-gold transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
+            <Card className="border-0 bg-card/50 backdrop-blur-sm hover:shadow-gold transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-royal bg-clip-text text-transparent text-center">
+                  Get In Touch
+                </h3>
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <div key={index} className="flex items-start space-x-4">
                       <div className="flex-shrink-0">
-                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-royal rounded-lg">
-                          <info.icon className="w-6 h-6 text-primary-foreground" />
+                        <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-royal rounded-lg">
+                          <info.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-2">
+                        <h4 className="font-semibold text-foreground mb-1">
                           {info.title}
-                        </h3>
+                        </h4>
                         {info.details.map((detail, idx) => (
                           <p key={idx} className="text-muted-foreground text-sm">
                             {detail}
@@ -60,10 +63,10 @@ const Contact = () => {
                         ))}
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
             <Card className="border-0 bg-gradient-heritage text-white">
               <CardContent className="p-8">

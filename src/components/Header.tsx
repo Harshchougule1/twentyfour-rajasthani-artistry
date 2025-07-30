@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Search, ShoppingBag } from "lucide-react";
+import { Menu, Search } from "lucide-react";
+import CartSheet from "./CartSheet";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-royal bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold text-foreground drop-shadow-sm">
               २४ Artistry
             </h1>
           </div>
@@ -34,9 +35,7 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
-              <ShoppingBag className="h-5 w-5" />
-            </Button>
+            <CartSheet />
             <Button 
               variant="outline" 
               className="hidden md:inline-flex"
