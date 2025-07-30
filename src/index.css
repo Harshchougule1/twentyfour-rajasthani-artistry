@@ -2,39 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Rajasthani Artistry Design System - Rich, vibrant colors inspired by traditional Rajasthani art */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 35 25% 97%;
+    --foreground: 345 35% 15%;
 
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 345 35% 15%;
 
+    /* Popover System */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 345 35% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Maroon/Crimson inspired by Rajasthani textiles */
+    --primary: 345 85% 25%;
+    --primary-foreground: 35 50% 98%;
+    --primary-glow: 345 75% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Royal Gold inspired by traditional jewelry */
+    --secondary: 45 90% 55%;
+    --secondary-foreground: 345 35% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Warm beige inspired by desert sands */
+    --muted: 35 20% 92%;
+    --muted-foreground: 345 25% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Sapphire blue inspired by royal Rajasthani art */
+    --accent: 220 85% 35%;
+    --accent-foreground: 35 50% 98%;
 
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders & Inputs */
+    --border: 35 15% 85%;
+    --input: 35 15% 90%;
+    --ring: 345 85% 25%;
+
+    /* Custom Rajasthani Colors */
+    --rajasthani-red: 345 85% 25%;
+    --rajasthani-gold: 45 90% 55%;
+    --rajasthani-blue: 220 85% 35%;
+    --rajasthani-orange: 25 85% 55%;
+    --rajasthani-green: 140 45% 35%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-royal: linear-gradient(135deg, hsl(var(--rajasthani-red)), hsl(var(--rajasthani-gold)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--rajasthani-orange)), hsl(var(--rajasthani-red)));
+    --gradient-heritage: linear-gradient(45deg, hsl(var(--rajasthani-blue)), hsl(var(--rajasthani-green)));
+    
+    /* Shadows */
+    --shadow-royal: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-gold: 0 8px 30px -8px hsl(var(--rajasthani-gold) / 0.4);
+    --shadow-elegant: 0 20px 60px -15px hsl(var(--primary) / 0.2);
+    
+    /* Animations */
+    --transition-royal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-in-out;
 
     --radius: 0.5rem;
 
