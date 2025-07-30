@@ -67,19 +67,7 @@ const Contact = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <Card className="border-0 bg-gradient-heritage text-white">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Special Exhibition</h3>
-                <p className="mb-4 text-white/90">
-                  Join us for our special exhibition "Royal Splendor: 300 Years of Rajasthani Art" 
-                  featuring rare and exquisite pieces from private collections.
-                </p>
-                <Button variant="secondary" className="bg-white text-rajasthani-blue hover:bg-white/90">
-                  Learn More
-                </Button>
-              </CardContent>
-            </Card>
+            
           </div>
 
           {/* Contact Form */}
