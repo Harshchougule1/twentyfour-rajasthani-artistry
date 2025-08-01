@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Search } from "lucide-react";
-import CartSheet from "./CartSheet";
+import { Menu, Search, User, LogOut } from "lucide-react";
+import { CartSheet } from "./CartSheet";
+import { AuthDialog } from "./AuthDialog";
+import { useAuth } from "@/hooks/useAuth";
+import { useState } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  onShowOrders?: () => void;
+}
+
+const Header = ({ onShowOrders }: HeaderProps) => {
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+  const { user, signOut } = useAuth();
+
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,6 +46,38 @@ const Header = () => {
               <Search className="h-5 w-5" />
             </Button>
             <CartSheet />
+            
+            {user ? (
+              <div className="flex items-center space-x-2">
+                {onShowOrders && (
+                  <Button variant="ghost" size="sm" onClick={onShowOrders}>
+                    My Orders
+                  </Button>
+                )}
+                <span className="text-sm hidden sm:inline">
+                  Welcome, {user.email?.split('@')[0]}
+                </span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={signOut}
+                  className="text-primary hover:text-primary-foreground"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowAuthDialog(true)}
+                className="text-primary border-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                <User className="h-4 w-4 mr-2" />
+                Login
+              </Button>
+            )}
+            
             <Button 
               variant="outline" 
               className="hidden md:inline-flex"
@@ -49,6 +91,11 @@ const Header = () => {
           </div>
         </div>
       </div>
+      
+      <AuthDialog 
+        open={showAuthDialog} 
+        onOpenChange={setShowAuthDialog} 
+      />
     </header>
   );
 };
