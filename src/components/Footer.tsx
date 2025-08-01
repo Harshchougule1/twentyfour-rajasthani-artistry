@@ -33,16 +33,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Collections */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Collections</h4>
-            <ul className="space-y-2">
-              <li><span className="text-primary-foreground/80">Royal Portraits</span></li>
-              <li><span className="text-primary-foreground/80">Wildlife Motifs</span></li>
-              <li><span className="text-primary-foreground/80">Religious Themes</span></li>
-              <li><span className="text-primary-foreground/80">Folk Art</span></li>
-            </ul>
-          </div>
+      
 
           {/* Contact Info */}
           <div className="space-y-4">
