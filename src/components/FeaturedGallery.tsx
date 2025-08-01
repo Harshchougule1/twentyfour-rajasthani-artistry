@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import PhadPainting from "@/assets/rp.jpg";
 import elephantPainting from "@/assets/elephant-painting.jpg";
 import collectionImage from "@/assets/paintings-collection.jpg";
-import PhadPainting from "@/assets/paintings-collection.jpg";
+
 
 
 const paintings = [
