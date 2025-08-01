@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast";
-import peacockPainting from "@/assets/peacock-painting.jpg";
+import peacockPainting from "@/assets/rp.jpg";
 import elephantPainting from "@/assets/elephant-painting.jpg";
 import collectionImage from "@/assets/paintings-collection.jpg";
 
