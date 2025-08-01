@@ -19,12 +19,17 @@ const Header = ({ onShowOrders }: HeaderProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 
-              className="text-2xl font-bold text-foreground drop-shadow-sm cursor-pointer hover:text-primary transition-colors"
+            <div 
+              className="flex flex-col items-center cursor-pointer hover:opacity-80 transition-all duration-300"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              २४ Artistry
-            </h1>
+              <span className="text-3xl font-cinzel font-bold text-rajasthani-gold drop-shadow-lg">
+                २४
+              </span>
+              <span className="text-lg font-playfair font-semibold text-foreground tracking-[0.2em] -mt-1">
+                ARTISTRY
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
