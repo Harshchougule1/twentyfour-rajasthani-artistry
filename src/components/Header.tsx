@@ -19,16 +19,16 @@ const Header = ({ onShowOrders }: HeaderProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-foreground drop-shadow-sm">
+            <h1 
+              className="text-2xl font-bold text-foreground drop-shadow-sm cursor-pointer hover:text-primary transition-colors"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
               २४ Artistry
             </h1>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
-              Home
-            </a>
             <a href="#gallery" className="text-foreground hover:text-primary transition-colors">
               Gallery
             </a>
