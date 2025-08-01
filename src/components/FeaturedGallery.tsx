@@ -5,6 +5,8 @@ import { useToast } from "@/hooks/use-toast";
 import peacockPainting from "@/assets/rp.jpg";
 import elephantPainting from "@/assets/elephant-painting.jpg";
 import collectionImage from "@/assets/paintings-collection.jpg";
+import PhadPainting from "@/assets/paintings-collection.jpg";
+
 
 const paintings = [
   {
@@ -13,6 +15,7 @@ const paintings = [
     originalPrice: "₹4,500",
     price: "₹3,500",
     image: peacockPainting,
+    image: PhadPainting,
     description: "Traditional Phad painting depicting epic tales and folklore"
   },
   {
