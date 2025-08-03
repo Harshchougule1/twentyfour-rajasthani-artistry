@@ -15,7 +15,6 @@ interface PaintingDetail {
   category: string;
   dimensions: string;
   medium: string;
-  artist: string;
   yearCreated: string;
   technique: string;
   story: string;
