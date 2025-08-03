@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Search, User, LogOut } from "lucide-react";
 import { CartSheet } from "./CartSheet";
 import { AuthDialog } from "./AuthDialog";
+import SearchDialog from "./SearchDialog";
 import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 
@@ -11,6 +12,7 @@ interface HeaderProps {
 
 const Header = ({ onShowOrders }: HeaderProps) => {
   const [showAuthDialog, setShowAuthDialog] = useState(false);
+  const [showSearchDialog, setShowSearchDialog] = useState(false);
   const { user, signOut } = useAuth();
 
   return (
@@ -47,7 +49,11 @@ const Header = ({ onShowOrders }: HeaderProps) => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setShowSearchDialog(true)}
+            >
               <Search className="h-5 w-5" />
             </Button>
             <CartSheet />
@@ -100,6 +106,10 @@ const Header = ({ onShowOrders }: HeaderProps) => {
       <AuthDialog 
         open={showAuthDialog} 
         onOpenChange={setShowAuthDialog} 
+      />
+      <SearchDialog 
+        open={showSearchDialog} 
+        onOpenChange={setShowSearchDialog} 
       />
     </header>
   );
