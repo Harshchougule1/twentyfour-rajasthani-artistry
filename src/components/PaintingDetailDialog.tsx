@@ -54,7 +54,17 @@ const PaintingDetailDialog = ({ painting, open, onOpenChange }: PaintingDetailDi
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-primary">{painting.title}</DialogTitle>
+          <div className="flex items-start justify-between">
+            <DialogTitle className="text-2xl font-bold text-primary flex-1">{painting.title}</DialogTitle>
+            <div className="flex gap-3 ml-4">
+              <Button onClick={handleBuyNow} variant="royal" size="sm">
+                Buy Now
+              </Button>
+              <Button onClick={handleAddToCart} variant="outline" size="sm">
+                Add to Cart
+              </Button>
+            </div>
+          </div>
         </DialogHeader>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -136,15 +146,6 @@ const PaintingDetailDialog = ({ painting, open, onOpenChange }: PaintingDetailDi
                 <span className="text-3xl font-bold text-rajasthani-gold">
                   {painting.price}
                 </span>
-              </div>
-              
-              <div className="flex gap-3">
-                <Button onClick={handleBuyNow} variant="royal" className="flex-1">
-                  Buy Now
-                </Button>
-                <Button onClick={handleAddToCart} variant="outline" className="flex-1">
-                  Add to Cart
-                </Button>
               </div>
             </div>
           </div>
