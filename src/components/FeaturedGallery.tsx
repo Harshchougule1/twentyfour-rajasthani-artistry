@@ -86,9 +86,6 @@ const FeaturedGallery = () => {
     });
   };
 
-  const handleBuyNow = (painting: typeof paintings[0]) => {
-    window.open(`https://wa.me/918605322549?text=Hi, I want to buy ${painting.title} for ${painting.price}`, '_blank');
-  };
 
   return (
     <section id="gallery" className="py-20 bg-muted/30">
@@ -141,20 +138,9 @@ const FeaturedGallery = () => {
                       {painting.price}
                     </span>
                   </div>
-                  <div className="flex gap-2">
+                  <div>
                     <Button 
                       variant="royal" 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleBuyNow(painting);
-                      }}
-                    >
-                      Buy Now
-                    </Button>
-                    <Button 
-                      variant="outline" 
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation();
