@@ -15,6 +15,7 @@ interface PaintingDetail {
   category: string;
   dimensions: string;
   medium: string;
+  artist?: string;
   yearCreated: string;
   technique: string;
   story: string;
@@ -56,10 +57,7 @@ const PaintingDetailDialog = ({ painting, open, onOpenChange }: PaintingDetailDi
           <div className="flex items-start justify-between">
             <DialogTitle className="text-2xl font-bold text-primary flex-1">{painting.title}</DialogTitle>
             <div className="flex gap-3 ml-4">
-              <Button onClick={handleBuyNow} variant="royal" size="sm">
-                Buy Now
-              </Button>
-              <Button onClick={handleAddToCart} variant="outline" size="sm">
+              <Button onClick={handleAddToCart} variant="royal" size="sm">
                 Add to Cart
               </Button>
             </div>
