@@ -7,6 +7,7 @@ interface AuthState {
   loading: boolean;
   signUp: (email: string, password: string, fullName: string) => Promise<{ error?: string }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
+  resetPassword: (email: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   updateProfile: (data: {
     full_name?: string;
@@ -65,6 +66,21 @@ export const useAuth = create<AuthState>((set, get) => ({
         return { error: error.message };
       }
 
+      return {};
+    } catch (error) {
+      return { error: 'An unexpected error occurred' };
+    }
+  },
+
+  resetPassword: async (email: string) => {
+    try {
+      const redirectUrl = `${window.location.origin}/`;
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectUrl,
+      });
+      if (error) {
+        return { error: error.message };
+      }
       return {};
     } catch (error) {
       return { error: 'An unexpected error occurred' };

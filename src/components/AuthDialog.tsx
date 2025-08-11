@@ -14,7 +14,7 @@ interface AuthDialogProps {
 
 export const AuthDialog = ({ open, onOpenChange }: AuthDialogProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, resetPassword } = useAuth();
   const { toast } = useToast();
 
   const [signInData, setSignInData] = useState({
@@ -85,6 +85,22 @@ export const AuthDialog = ({ open, onOpenChange }: AuthDialogProps) => {
     setIsLoading(false);
   };
 
+  const handleForgotPassword = async () => {
+    if (!signInData.email) {
+      toast({
+        title: 'Enter your email',
+        description: 'Please enter your email to reset your password.',
+        variant: 'destructive',
+      });
+      return;
+    }
+    const { error } = await resetPassword(signInData.email);
+    if (error) {
+      toast({ title: 'Error', description: error, variant: 'destructive' });
+    } else {
+      toast({ title: 'Email sent', description: 'Password reset link sent. Check your inbox.' });
+    }
+  };
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
@@ -118,6 +134,11 @@ export const AuthDialog = ({ open, onOpenChange }: AuthDialogProps) => {
                   onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                   required
                 />
+              </div>
+              <div className="text-right">
+                <Button type="button" variant="link" size="sm" className="px-0" onClick={handleForgotPassword}>
+                  Forgot password?
+                </Button>
               </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? 'Signing In...' : 'Sign In'}
